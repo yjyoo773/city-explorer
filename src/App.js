@@ -27,6 +27,7 @@ class App extends React.Component {
     try {
       e.preventDefault();
       const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${this.state.searchQuery}&format=json`;
+      console.log(url);
       const location = await axios.get(url);
       const locationArray = location.data;
       this.setState({
@@ -43,11 +44,13 @@ class App extends React.Component {
   render() {
     var divStyle = {
       backgroundImage: `url(${backgroundImg})`,
-      height: "100vh",
+      height: "auto",
+      // height: "100vh",
       minHeight: "100vh",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
+      overflow:"auto"
     };
     console.log("state", this.state);
     return (
