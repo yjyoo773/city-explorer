@@ -9,7 +9,8 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 
-import backgroundImg from "/Users/Yongjoo/Desktop/codefellows/city/src/img/bg_img.jpeg";
+// import backgroundImg from "/Users/Yongjoo/Desktop/codefellows/city/src/img/bg_img.jpeg";
+import backgroundImg from "./img/bg_img.jpeg";
 
 class App extends React.Component {
   constructor(props) {
