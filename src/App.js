@@ -35,6 +35,7 @@ class App extends React.Component {
         displayResults: true,
         imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=12`,
       });
+      console.log("state", this.state);
     } catch (err) {
       if (!alert(err)) {
         window.location.reload();
@@ -50,9 +51,9 @@ class App extends React.Component {
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
-      overflow:"auto"
+      overflow: "auto",
     };
-    console.log("state", this.state);
+    // console.log("state", this.state);
     return (
       <div style={divStyle}>
         <Container className="align-middle p-0">
@@ -78,6 +79,10 @@ class App extends React.Component {
                 <h2 style={{ color: "white" }}>
                   {this.state.location.display_name}
                 </h2>
+                <h3 style={{ color: "white" }}>
+                  Latitude: {this.state.location.lat} <br />
+                  Longitude: {this.state.location.lon}
+                </h3>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <Image
                     fluid
