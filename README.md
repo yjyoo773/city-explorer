@@ -23,6 +23,7 @@ Using JavaScript, the application collects data from the user's input. In this c
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
+#### 03/22/21
 ### Name of feature: 1. Repository & API Key Setup
 
 Estimate of time needed to complete: 30 min
@@ -62,6 +63,29 @@ Start time: 4:40
 Finish time: 5:10
 
 Actual time needed to complete: 30 min
+
+
+#### 03/23/21
+### Name of feature: # 1 Check weather for searched city
+
+Estimate of time needed to complete: 1.5 hr
+
+Start time: 2:10
+
+Finish time: 4:10
+
+Actual time needed to complete: 2 hr
+
+
+### Name of feature: # 2 Create error function 
+
+Estimate of time needed to complete: 2 hr
+
+Start time: 4:10
+
+Finish time: 5:50
+
+Actual time needed to complete: 1 hr 40 min
 
 ## Credit and Collaborations
 [LocationIQ](https://locationiq.com/)
