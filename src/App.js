@@ -1,5 +1,4 @@
 // import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import axios from "axios";
 
@@ -8,6 +7,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
+
+import Weather from "./weather";
 
 // import backgroundImg from "/Users/Yongjoo/Desktop/codefellows/city/src/img/bg_img.jpeg";
 import backgroundImg from "./img/bg_img.jpeg";
@@ -20,6 +21,7 @@ class App extends React.Component {
       searchQuery: "",
       imgSrc: "",
       displayResults: false,
+      weatherArray: [],
     };
   }
 
@@ -27,26 +29,35 @@ class App extends React.Component {
     try {
       e.preventDefault();
       const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${this.state.searchQuery}&format=json`;
-      console.log(url);
+      // console.log(url);
       const location = await axios.get(url);
       const locationArray = location.data;
+      const weather_url = `http://localhost:3001/weather?lat=${locationArray[0].lat}&lon=${locationArray[0].lon}`;
+      const weather = await axios.get(weather_url);
       this.setState({
         location: locationArray[0],
         displayResults: true,
         imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=12`,
+        weatherArray: weather.data,
       });
-      console.log("state", this.state);
+      console.log("state", this.state.weatherArray.forecast);
     } catch (err) {
-      if (!alert(err)) {
+      if (
+        !alert(
+          err.message === "Network Error"
+            ? "Request failed with status code 500"
+            : err.message
+        )
+      ) {
         window.location.reload();
       }
     }
   };
+
   render() {
     var divStyle = {
       backgroundImage: `url(${backgroundImg})`,
       height: "auto",
-      // height: "100vh",
       minHeight: "100vh",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -83,6 +94,7 @@ class App extends React.Component {
                   Latitude: {this.state.location.lat} <br />
                   Longitude: {this.state.location.lon}
                 </h3>
+                <Weather weather={this.state.weatherArray.forecast} />
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <Image
                     fluid
