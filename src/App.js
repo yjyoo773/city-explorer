@@ -1,4 +1,3 @@
-// import "./App.css";
 import React from "react";
 import axios from "axios";
 
@@ -10,7 +9,6 @@ import Image from "react-bootstrap/Image";
 
 import Weather from "./weather";
 
-// import backgroundImg from "/Users/Yongjoo/Desktop/codefellows/city/src/img/bg_img.jpeg";
 import backgroundImg from "./img/bg_img.jpeg";
 
 class App extends React.Component {
@@ -33,7 +31,9 @@ class App extends React.Component {
       const location = await axios.get(url);
       const locationArray = location.data;
       const weather_url = `http://localhost:3001/weather?lat=${locationArray[0].lat}&lon=${locationArray[0].lon}`;
-      const weather = await axios.get(weather_url);
+      const weather_url2 = `https://city-explorer-lsu.herokuapp.com/weather?lat=${locationArray[0].lat}&lon=${locationArray[0].lon}`;
+
+      const weather = await axios.get(weather_url || weather_url2);
       this.setState({
         location: locationArray[0],
         displayResults: true,
@@ -42,13 +42,7 @@ class App extends React.Component {
       });
       console.log("state", this.state.weatherArray.forecast);
     } catch (err) {
-      if (
-        !alert(
-          err.message === "Network Error"
-            ? "Request failed with status code 500"
-            : err.message
-        )
-      ) {
+      if (!alert(err)) {
         window.location.reload();
       }
     }
