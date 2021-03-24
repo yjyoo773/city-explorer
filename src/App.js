@@ -30,10 +30,13 @@ class App extends React.Component {
       // console.log(url);
       const location = await axios.get(url);
       const locationArray = location.data;
-      const weather_url = `http://localhost:3001/weather?lat=${locationArray[0].lat}&lon=${locationArray[0].lon}`;
-      const weather_url2 = `https://city-explorer-lsu.herokuapp.com/weather?lat=${locationArray[0].lat}&lon=${locationArray[0].lon}`;
+      // const weather_url = `http://localhost:3001/weather?lat=${locationArray[0].lat}&lon=${locationArray[0].lon}`;
+      const heroku_url = `https://city-explorer-lsu.herokuapp.com/weather?lat=${locationArray[0].lat}&lon=${locationArray[0].lon}`;
+      
 
-      const weather = await axios.get(weather_url || weather_url2);
+      // const weather = await axios.get(weather_url);
+      const weather = await axios.get(heroku_url)
+
       this.setState({
         location: locationArray[0],
         displayResults: true,
