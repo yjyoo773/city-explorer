@@ -87,10 +87,6 @@ class App extends React.Component {
                 <h2 style={{ color: "white" }}>
                   {this.state.location.display_name}
                 </h2>
-                <h3 style={{ color: "white" }}>
-                  Latitude: {this.state.location.lat} <br />
-                  Longitude: {this.state.location.lon}
-                </h3>
                 <Weather weather={this.state.weatherArray.forecast} />
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <Image
