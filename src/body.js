@@ -64,8 +64,8 @@ class Body extends React.Component {
 
   getMovieInfo = async (location) => {
     try {
-      const movie_url = `${process.env.REACT_APP_SERVER}/movies?title=${location.display_name}`;
-    //   const movie_url = `https://city-explorer-lsu.herokuapp.com/movies?title=${location.display_name}`;
+    //   const movie_url = `${process.env.REACT_APP_SERVER}/movies?title=${location.display_name}`;
+      const movie_url = `https://city-explorer-lsu.herokuapp.com/movies?title=${location.display_name}`;
 
       const movie = await axios.get(movie_url);
       this.setState({ movieArray: movie.data });
