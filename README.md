@@ -87,5 +87,27 @@ Finish time: 5:50
 
 Actual time needed to complete: 1 hr 40 min
 
+#### 03/25/21
+
+### Name of feature: # 1  Movies
+
+Estimate of time needed to complete: 1.5 hrs
+
+Start time: 13:45
+
+Finish time: 15:30
+
+Actual time needed to complete: 1.75 hrs
+
+### Name of feature: # 2 Refractor
+
+Estimate of time needed to complete: 2 hrs
+
+Start time: 15:30
+
+Finish time: 20:00
+
+Actual time needed to complete: 4.5 hrs
+
 ## Credit and Collaborations
 [LocationIQ](https://locationiq.com/)
