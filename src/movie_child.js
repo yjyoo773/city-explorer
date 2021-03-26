@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 import Carousel from 'react-bootstrap/Carousel'
 
 class MovieC extends React.Component {
