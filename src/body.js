@@ -37,7 +37,7 @@ class Body extends React.Component {
         displayResults: true,
         imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=12`,
       });
-      console.log("state", locationArray[0]);
+      // console.log("state", locationArray[0]);
     } catch (err) {
       if (!alert(err)) {
         window.location.reload();
@@ -55,8 +55,8 @@ class Body extends React.Component {
           params: { lat: location.lat, lon: location.lon },
         }
       );
-      this.setState({ weatherArray: weather.data.forecast });
-      //   console.log("inside getWeather", this.state.weatherArray);
+      this.setState({ weatherArray: weather.data });
+      console.log("inside getWeather", weather);
     } catch (err) {
       console.log(err);
     }
@@ -64,12 +64,12 @@ class Body extends React.Component {
 
   getMovieInfo = async (location) => {
     try {
-    //   const movie_url = `${process.env.REACT_APP_SERVER}/movies?title=${location.display_name}`;
+      // const movie_url = `${process.env.REACT_APP_SERVER}/movies?title=${location.display_name}`;
       const movie_url = `https://city-explorer-lsu.herokuapp.com/movies?title=${location.display_name}`;
 
       const movie = await axios.get(movie_url);
       this.setState({ movieArray: movie.data });
-      console.log("inside getMovie", this.state.movieArray);
+      // console.log("inside getMovie", this.state.movieArray);
     } catch (err) {
       console.log(err);
     }

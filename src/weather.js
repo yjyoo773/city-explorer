@@ -9,7 +9,7 @@ class Weather extends React.Component {
     return (
       <CardDeck style={{alignSelf:"center"}}>
         {data.map((element) => (
-          <WeatherDay key={element.date} date={element.date} desc={element.description} />
+          <WeatherDay key={element.time} date={element.time} desc={element.forecast} />
         ))}
       </CardDeck>
     );

@@ -26,8 +26,7 @@ class App extends React.Component {
       <div style={divStyle}>
         <Container className="align-middle p-0">
           <Header getLocationInfo={this.getLocationInfo} />
-          <Body/>
-          
+          <Body/>          
         </Container>
       </div>
     );
