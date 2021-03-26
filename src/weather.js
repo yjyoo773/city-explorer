@@ -5,6 +5,7 @@ import WeatherDay from "./weatherday";
 class Weather extends React.Component {
   render() {
     let data = this.props.weather;
+    // console.log(this.props.weather.forecast)
     return (
       <CardDeck style={{alignSelf:"center"}}>
         {data.map((element) => (
