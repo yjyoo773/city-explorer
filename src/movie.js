@@ -1,5 +1,5 @@
 import React from "react";
-// import MovieC from "./movie_child";
+import MovieC from "./movie_child";
 import Carousel from "react-bootstrap/Carousel";
 
 class Movie extends React.Component {
@@ -8,17 +8,13 @@ class Movie extends React.Component {
 
     // console.log(data);
     return (
-      <Carousel style={{ alignSelf: "center", minHeight: "8rem" }}>
+      <Carousel style={{ alignSelf: "center",minHeight:"8rem" }}>
         {data.map((element) => (
           <Carousel.Item>
-            <img
-              style={{ margin: "auto" }}
-              src={element.image_url}
-              alt={element.title}
-            />
-            <Carousel.Caption style={{ color: "#0275d8" }}>
-              <h3>{element.title}</h3>
-              <p>{element.released_on}</p>
+            <img style={{margin:"auto"}} src={element.image_url} alt={element.title} />
+            <Carousel.Caption>
+              {/* <h3>{element.title}</h3> */}
+              <h4>{element.released_on}</h4>
             </Carousel.Caption>
           </Carousel.Item>
           // <MovieC
@@ -29,6 +25,7 @@ class Movie extends React.Component {
           // />
         ))}
       </Carousel>
+      
     );
   }
 }
