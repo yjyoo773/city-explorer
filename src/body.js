@@ -62,7 +62,7 @@ class Body extends React.Component {
 
   getMovieInfo = async (location) => {
     try {
-      const movie_url = `http://localhost:3001/movies/?title=${location.display_name}`;
+      const movie_url = `${process.env.REACT_APP_SERVER}/?title=${location.display_name}`;
       const movie = await axios.get(movie_url);
       this.setState({ movieArray: movie.data });
       console.log("inside getMovie",this.state.movieArray)
