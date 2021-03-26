@@ -11,7 +11,7 @@ class Movie extends React.Component {
       <Carousel style={{ alignSelf: "center",minHeight:"8rem" }}>
         {data.map((element) => (
           <Carousel.Item>
-            <img style={{margin:"auto"}} src={element.image_url} alt={element.title} />
+            <img style={{alignSelf: "center",minHeight:'400px',color:'white'}} src={element.image_url} alt={element.title} />
             <Carousel.Caption>
               {/* <h3>{element.title}</h3> */}
               <h4>{element.released_on}</h4>
