@@ -19,6 +19,7 @@ class Body extends React.Component {
       displayResults: false,
       weatherArray: [],
       movieArray: [],
+      foodArray:[],
     };
   }
 
@@ -56,11 +57,29 @@ class Body extends React.Component {
         }
       );
       this.setState({ weatherArray: weather.data });
-      console.log("inside getWeather", weather);
+      // console.log("inside getWeather", weather);
     } catch (err) {
       console.log(err);
     }
   };
+
+  getFoodInfo = async (location) => {
+    try {
+      const food = await axios.get(
+        // `${process.env.REACT_APP_SERVER}/yelp`,
+        `https://city-explorer-lsu.herokuapp.com/yelp`,
+
+        {
+          params: { lat: location.lat, lon: location.lon },
+        }
+      );
+      this.setState({ foodArray: food.data });
+      console.log("inside getFood", food);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
   getMovieInfo = async (location) => {
     try {

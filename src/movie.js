@@ -16,6 +16,7 @@ class Movie extends React.Component {
         {data.map((element, indx) => (
           <Carousel.Item key={indx}>
             <Image
+            className = 'w-100'
               style={{
                 alignSelf: "center",
                 minHeight: "400px",
@@ -25,8 +26,8 @@ class Movie extends React.Component {
               onError={this.addDefaultSrc}
             />
             <Carousel.Caption>
-              {/* <h3>{element.title}</h3> */}
-              <h4>{element.released_on}</h4>
+              <h3>{element.title}</h3>
+              {/* <h4>{element.released_on}</h4> */}
             </Carousel.Caption>
           </Carousel.Item>
           // <MovieC
